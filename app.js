@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+var bodyParser = require('body-parser');
 var port = 3000;
 var x = 10;
 var y = 10;
@@ -12,7 +13,7 @@ app.get('/', function(req, res) {
 });
 
 app.post('/', function(req, res) {
-  
+
 });
 
 app.listen(port, function() {
