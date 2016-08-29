@@ -35,9 +35,9 @@ app.post('/user', function(req, res) {
 setInterval(function() {
   for (var key in host) {
     if (host[key] >= 0) {
-      host[key] = host[key] * 0.9;
+      host[key] = Math.floor(host[key] * 0.9);
     } else {
-      host[key] = host[key] * 0.9;
+      host[key] = Math.ceil(host[key] * 0.9);
     }
   }
 }, 50);
