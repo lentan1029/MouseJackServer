@@ -8,18 +8,27 @@ var host = {
   y: 0
 };
 
+var defaultCorsHeaders = {
+  'access-control-allow-origin': '*',
+  'access-control-allow-methods': 'GET, POST, PUT, DELETE, OPTIONS',
+  'access-control-allow-headers': 'content-type, accept',
+  'access-control-max-age': 10 // Seconds.
+};
+
 app.use(bodyParser.json());
 
-app.get('/', function(req, res) {
-  res.status(200).json({
+app.get('/host', function(req, res) {
+  res.set(defaultCorsHeaders);
+  res.json({
     x: host.x,
     y: host.y
   });
 });
 
-app.post('/', function(req, res) {
+app.post('/user', function(req, res) {
   host.x += req.body.x;
   host.y += req.body.y;
+  res.status(201);
   res.send('data sent');
 });
 
@@ -27,7 +36,7 @@ setInterval(function() {
   for (var key in host) {
     host[key] = Math.floor(host[key] * 0.9 * 10) / 10;
   }
-}, 1000);
+}, 10);
 
 app.listen(port, function() {
   console.log('app listening on port', port);
