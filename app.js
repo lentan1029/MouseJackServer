@@ -35,12 +35,12 @@ app.post('/user', function(req, res) {
 setInterval(function() {
   for (var key in host) {
     if (host[key] >= 0) {
-      host[key] = Math.floor(host[key] * 0.9 * 10) / 10;
+      host[key] = Math.floor(host[key] * 0.9 * 100) / 100;
     } else {
-      host[key] = Math.ceil(host[key] * 0.9 * 10) / 10;
+      host[key] = Math.ceil(host[key] * 0.9 * 100) / 10;
     }
   }
-}, 10);
+}, 50);
 
 app.listen(port, function() {
   console.log('app listening on port', port);
