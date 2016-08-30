@@ -11,4 +11,4 @@ var svg = d3.select('#nav')
 svg.append('rect')
     .attr('width', '100%')
     .attr('height', '100%')
-    .attr('fill', 'pink');
+    .attr('fill', 'blue');

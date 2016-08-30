@@ -33,11 +33,21 @@ app.get('/host', function(req, res) {
 });
 
 app.post('/user', function(req, res) {
+
+  if (req.body === undefined) {
+    res.end('body empty');
+    return;
+  }
+
+  if (Number.isInteger(req.body.x) === false || Number.isInteger(req.body.y) === false) {
+    res.end('x and y must be integers');
+    return;
+  }
   
-  if (host.x <= 50) {
+  if (Math.abs(host.x) <= 100 && Math.abs(host.x + req.body.x) <= 100) {
     host.x += req.body.x;
   }
-  if (host.x >= 50) {
+  if (Math.abs(host.y) <= 100 && Math.abs(host.y + req.body.y) <= 100) {
     host.y += req.body.y;
   }
   res.status(201);
