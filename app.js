@@ -22,7 +22,7 @@ var allowCrossDomain = function(req, res, next) { //enable CORS
 };
 
 app.use(allowCrossDomain);
-app.use(express.static('public'));
+app.use('/public', express.static('public'));
 app.use(bodyParser.json());
 
 app.get('/host', function(req, res) {
