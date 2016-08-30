@@ -66,7 +66,12 @@ var mousepad = svg.append('image')
   .attr('height', '60%')
   .attr('width', '60%')
   .attr('x', window.innerWidth * 0.2)
-  .attr('y', window.innerHeight * 0.2);
+  .attr('y', window.innerHeight * 0.2)
+  .on('click', function(data, index) {
+    var xMove = d3.event.x - middle.attr('cx');
+    var yMove = d3.event.y - middle.attr('cy');
+    console.log(xMove, yMove); //TODO: hard coded movement values
+  });
   
 
 var middle = svg.append('circle')
