@@ -59,7 +59,7 @@ var range = svg.append('circle')
     var xMove = d3.event.x - middle.attr('cx');
     var yMove = d3.event.y - middle.attr('cy');
     console.log(d3.event.x, d3.event.y);
-    console.log(xMove, yMove - window.innerHeight / 10); //TODO: hard coded movement values
+    console.log(xMove, yMove - window.innerHeight / 100 * 15); //TODO: hard coded movement values
   });
 
 var mousepad = svg.append('image')
@@ -72,7 +72,7 @@ var mousepad = svg.append('image')
     var xMove = d3.event.x - middle.attr('cx');
     var yMove = d3.event.y - middle.attr('cy');
     console.log(d3.event.x, d3.event.y);
-    console.log(xMove, yMove - window.innerHeight / 10); //TODO: hard coded movement values
+    console.log(xMove, yMove - window.innerHeight / 100 * 15); //TODO: hard coded movement values
   });
   
 
