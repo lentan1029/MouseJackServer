@@ -60,7 +60,7 @@ var range = svg.append('circle')
   .attr('fill', '#d3d3d3');
 
 var mousepad = svg.append('image')
-  .attr('xlink:href', './movement.png')
+  .attr('xlink:href', 'http://138.68.49.22:3000/public/movement.png')
   .attr('height', '60%')
   .attr('width', '60%')
   .attr('x', window.innerWidth * 0.2)
