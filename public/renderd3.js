@@ -58,8 +58,25 @@ var range = svg.append('circle')
   .on('click', function(data, index) {
     var xMove = d3.event.x - middle.attr('cx');
     var yMove = d3.event.y - middle.attr('cy');
-    console.log(d3.event.x, d3.event.y);
-    console.log(xMove / window.innerWidth * 100 / 2, (yMove - window.innerHeight / 100 * 13) / window.innerWidth * 100 / 2); //TODO: hard coded movement values
+    // console.log(d3.event.x, d3.event.y);
+    // console.log(xMove / window.innerWidth * 100 / 2, (yMove - window.innerHeight / 100 * 13) / window.innerWidth * 100 / 2); //TODO: hard coded movement values
+    var x = Math.round(xMove / window.innerWidth * 100 / 2);
+    var y = Math.round((yMove - window.innerHeight / 100 * 13) / window.innerWidth * 100 / 2);
+    var data = {
+      x: x,
+      y: y
+    };
+
+    $.ajax({
+      type: 'POST',
+      // dataType: 'json',
+      contentType: 'application/json',
+      url: 'http://138.68.49.22:3000/user',
+      data: JSON.stringify(data),
+      success: function(data) {
+        console.log(data);
+      }
+    });
   });
 
 var mousepad = svg.append('image')
@@ -71,8 +88,25 @@ var mousepad = svg.append('image')
   .on('click', function(data, index) {
     var xMove = d3.event.x - middle.attr('cx');
     var yMove = d3.event.y - middle.attr('cy');
-    console.log(d3.event.x, d3.event.y);
-    console.log(xMove / window.innerWidth * 100 / 2, (yMove - window.innerHeight / 100 * 13) / window.innerWidth * 100 / 2); //TODO: hard coded movement values
+    // console.log(d3.event.x, d3.event.y);
+    var x = Math.round(xMove / window.innerWidth * 100 / 2);
+    var y = Math.round((yMove - window.innerHeight / 100 * 13) / window.innerWidth * 100 / 2);
+    var data = {
+      x: x,
+      y: y
+    };
+
+    $.ajax({
+      type: 'POST',
+      // dataType: 'json',
+      contentType: 'application/json',
+      url: 'http://138.68.49.22:3000/user',
+      data: JSON.stringify(data),
+      success: function(data) {
+        console.log(data);
+      }
+    });
+    // console.log(xMove / window.innerWidth * 100 / 2, (yMove - window.innerHeight / 100 * 13) / window.innerWidth * 100 / 2); //TODO: hard coded movement values
   });
   
 
