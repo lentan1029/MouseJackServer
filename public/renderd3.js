@@ -13,10 +13,6 @@ var svg = d3.select('#nav').append('svg').attr('position', 'fixed')
   .attr('width', '60%')
   .attr('x', window.innerWidth * 0.2)
   .attr('y', window.innerHeight * 0.2);
-
-  var xMove = d3.event.x - middle.attr('cx');
-  var yMove = d3.event.y - middle.attr('cy');
-  console.log(xMove, yMove); //TODO: hard coded movement values
 });
 
 var bg = svg.append('rect')
@@ -58,7 +54,12 @@ var range = svg.append('circle')
   .attr('cx', window.innerWidth / 2)
   .attr('cy', window.innerHeight / 2)
   .attr('r', '30%')
-  .attr('fill', '#d3d3d3');
+  .attr('fill', '#d3d3d3')
+  .on('click', function(data, index) {
+    var xMove = d3.event.x - middle.attr('cx');
+    var yMove = d3.event.y - middle.attr('cy');
+    console.log(xMove, yMove); //TODO: hard coded movement values
+  });
 
 var mousepad = svg.append('image')
   .attr('xlink:href', 'http://138.68.49.22:3000/public/movement.png')
