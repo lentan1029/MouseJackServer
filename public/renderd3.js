@@ -4,6 +4,7 @@ var svg = d3.select('#nav').append('svg').attr('position', 'fixed')
 .attr('width', '100%')
 .attr('height', '100%')
 .on('click', function(data, index) { //TODO: fix it so that midpoint is moved when the window resizes
+  d3.event.preventDefault();
   middle.attr('cx', window.innerWidth / 2)
   .attr('cy', window.innerHeight / 2);
   range.attr('cx', window.innerWidth / 2)
