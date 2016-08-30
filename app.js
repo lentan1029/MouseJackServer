@@ -26,6 +26,7 @@ app.get('/host', function(req, res) {
 });
 
 app.post('/user', function(req, res) {
+  res.set(defaultCorsHeaders);
   host.x += req.body.x;
   host.y += req.body.y;
   res.status(201);
