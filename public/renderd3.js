@@ -5,6 +5,10 @@ var svg = d3.select('#nav')
    //responsive SVG needs these 2 attributes and no width and height attr
    .attr('preserveAspectRatio', 'xMinYMin meet')
    .attr('viewBox', '0 0 600 400')
-   .attr('fill', 'blue')
    //class to make it responsive
    .classed('svg-content-responsive', true); 
+
+svg.append('rect')
+    .attr('width', '100%')
+    .attr('height', '100%')
+    .attr('fill', 'pink');
