@@ -1,24 +1,30 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var port = 3000;
+var port = 3001;
 
 var host = {
   x: 0,
   y: 0
 };
 
-var defaultCorsHeaders = {
-  'access-control-allow-origin': '*',
-  'access-control-allow-methods': 'GET, POST, PUT, DELETE, OPTIONS',
-  'access-control-allow-headers': 'content-type, accept',
-  'access-control-max-age': 10 // Seconds.
+var allowCrossDomain = function(req, res, next) { //enable CORS
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+  res.header('Access-Control-Max-Age', 10);
+  // intercept OPTIONS method
+  if (req.method === 'OPTIONS') {
+    res.sendStatus(200);
+  } else {
+    next();
+  }
 };
 
+app.use(allowCrossDomain);
 app.use(bodyParser.json());
 
 app.get('/host', function(req, res) {
-  res.set(defaultCorsHeaders);
   res.json({
     x: host.x,
     y: host.y
@@ -26,11 +32,13 @@ app.get('/host', function(req, res) {
 });
 
 app.post('/user', function(req, res) {
-  res.set(defaultCorsHeaders);
   host.x += req.body.x;
   host.y += req.body.y;
   res.status(201);
-  res.send('data sent');
+  res.json({
+    host: host,
+    reqbody: req.body
+  });
 });
 
 setInterval(function() {
