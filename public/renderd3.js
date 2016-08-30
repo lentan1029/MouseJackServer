@@ -16,7 +16,7 @@ var svg = d3.select('#nav').append('svg').attr('position', 'fixed')
 
   var xMove = d3.event.x - middle.attr('cx');
   var yMove = d3.event.y - middle.attr('cy');
-  console.log(xMove / window.innerWidth * 100 / 2, yMove / window.innerHeight * 100 / 2); //TODO: hard coded movement values
+  console.log(xMove, yMove); //TODO: hard coded movement values
 });
 
 var bg = svg.append('rect')
