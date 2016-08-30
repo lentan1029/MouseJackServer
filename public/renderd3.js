@@ -71,6 +71,7 @@ var mousepad = svg.append('image')
   .on('click', function(data, index) {
     var xMove = d3.event.x - middle.attr('cx');
     var yMove = d3.event.y - middle.attr('cy');
+    console.log(d3.event.x, d3.event.y);
     console.log(xMove, yMove); //TODO: hard coded movement values
   });
   
