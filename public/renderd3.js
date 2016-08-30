@@ -71,6 +71,6 @@ var mousepad = svg.append('image')
 var middle = svg.append('circle')
   .attr('cx', window.innerWidth / 2)
   .attr('cy', window.innerHeight / 2)
-  .attr('r', '0%')
+  .attr('r', '0.5%')
   .attr('fill', 'pink');
 
