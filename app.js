@@ -32,8 +32,13 @@ app.get('/host', function(req, res) {
 });
 
 app.post('/user', function(req, res) {
-  host.x += req.body.x;
-  host.y += req.body.y;
+  
+  if (host.x <= 50) {
+    host.x += req.body.x;
+  }
+  if (host.x >= 50) {
+    host.y += req.body.y;
+  }
   res.status(201);
   res.json({
     host: host,
